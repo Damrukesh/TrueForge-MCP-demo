@@ -1,0 +1,14 @@
+name: production-deploy
+on:
+  push:
+    branches: [main]
+
+steps:
+  - name: run-tests
+    script: ./run_tests.sh
+
+  - name: deploy
+    script: ./deploy.sh
+
+  - name: notify-team
+    script: ./send_slack_notification.sh
