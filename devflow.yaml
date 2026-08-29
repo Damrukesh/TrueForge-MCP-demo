@@ -1,0 +1,14 @@
+name: payment-processing
+on:
+  push:
+    branches: [main]
+
+steps:
+  - name: validate-payment
+    script: ./validate_payment.sh
+
+  - name: process-payment
+    script: ./process_payment.sh
+
+  - name: alert-finance-team
+    script: ./send_payment_alert.sh
